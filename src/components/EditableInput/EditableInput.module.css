@@ -1,0 +1,15 @@
+.wrapper {
+    position: relative;
+    width: min-content;
+}
+.editButton {
+    width: 25px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}

@@ -1,0 +1,26 @@
+.widget {
+  grid-area: pres;
+  box-shadow: 2px 2px 1px #888888;
+  border: 2px black solid;
+  border-radius: 20px;
+  padding: 20px 10px;
+  max-height: 350px;
+  width: max-content;
+  height: fit-content;
+}
+.widgetTitle {
+  font-weight: normal;
+}
+
+.prescription {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.prescription>.icon {
+  width: 100px;
+}
+.prescription>.name {
+  font-size: 18px;
+}

@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&display=swap');
+.header {
+  grid-area: head;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 30px;
+
+  border-bottom: 1px solid #d5d2d2;
+}
+.brand, .profile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+.brand>.logo, .profile>.img {
+  max-width: 40px;
+}
+.profile>.img {
+  border-radius: 50%;
+  overflow: hidden;
+}
+.brand>.name {
+  font-family: 'Cinzel', serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: #1f57ff;
+}

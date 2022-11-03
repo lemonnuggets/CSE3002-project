@@ -1,0 +1,13 @@
+.fields {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.row {
+    display: flex;
+    gap: 10px;
+}
+.col {
+    display: flex;
+    flex-direction: column;
+}

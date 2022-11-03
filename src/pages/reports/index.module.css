@@ -1,0 +1,97 @@
+.pageTitle {
+    margin-bottom: 15px;
+}
+.columns {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    width: 100%;
+}
+.column {
+    flex: 1;
+}
+.columnTitle {
+    font-weight: normal;
+}
+.columnContent {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+}
+.result {
+    box-shadow: 1px 1px 1px #888888;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    place-items: center;
+    display: grid;
+    grid-template-areas:
+        "date valu"
+        "loca valu";
+}
+.location {
+    grid-area: loca;
+}
+.date {
+    grid-area: date;
+}
+.value {
+    grid-area: valu;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+.Positive {
+    background-color: lightcoral;
+}
+.Negative {
+    background-color: lightgreen;
+}
+.fileUpload {
+    display: none;
+}
+.scans {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    width: 300px;
+    height: 300px;
+    cursor: pointer;
+    background-color: rgb(147, 136, 211);
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.scans > img {
+    width: 70%;
+}
+.uploadColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+.uploads {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.upload {
+    width: 100px;
+    color: white;
+    background-color: rgb(90, 68, 211);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.submitButton {
+    color: white;
+    background-color: rgb(43, 150, 43);
+    border: green;
+    outline: none;
+    padding: 5px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}

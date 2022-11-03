@@ -1,0 +1,18 @@
+.main {
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+    height: 100%;
+}
+.widgetGrid {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* display: grid;
+  grid-template-columns: repeat(1fr 2);
+  grid-template-rows: repeat(1fr 2);
+  grid-template-areas: "stat pres"
+                       ". ."; */
+    gap: 30px;
+}

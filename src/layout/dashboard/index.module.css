@@ -1,0 +1,13 @@
+.main {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 8fr;
+    grid-template-rows: 1fr 12fr;
+    grid-template-areas:
+        "head head"
+        "side body";
+}
+.main > .content {
+    grid-area: body;
+    padding: 20px 40px;
+}
