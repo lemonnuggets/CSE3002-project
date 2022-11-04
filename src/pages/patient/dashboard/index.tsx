@@ -1,7 +1,7 @@
 import CurrentPrescription from "components/CurrentPrescription";
 import RecentActivitiesWidget from "components/RecentActivitiesWidget";
 import StatisticsWidget from "components/StatisticsWidget";
-import Layout from "layout/dashboard";
+import Layout from "layout/patient";
 import styles from "./index.module.css";
 const Dashboard = () => {
     return (

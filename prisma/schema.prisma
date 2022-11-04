@@ -39,12 +39,14 @@ model Doctor {
 }
 
 model Prescription {
-  id           String  @id @default(cuid())
+  id           String   @id @default(cuid())
   name         String
   for          String // disease name
   details      String
-  takenBy      Patient @relation(fields: [patientId], references: [id])
-  prescribedBy Doctor  @relation(fields: [doctorId], references: [id])
+  startDate    DateTime
+  endDate      DateTime
+  takenBy      Patient  @relation(fields: [patientId], references: [id])
+  prescribedBy Doctor   @relation(fields: [doctorId], references: [id])
 
   patientId String
   doctorId  String

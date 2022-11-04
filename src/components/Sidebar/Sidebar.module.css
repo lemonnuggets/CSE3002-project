@@ -6,9 +6,9 @@
     flex-direction: column;
     gap: 10px;
 }
-.link > .linkIcon {
-    max-width: 20px;
-}
+/* .link > .linkIcon {
+    max-width: 30px;
+} */
 .link {
     display: flex;
     flex-direction: row;

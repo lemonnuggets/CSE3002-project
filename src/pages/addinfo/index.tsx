@@ -108,17 +108,20 @@ const AddInfo = () => {
                     }}
                     className="rounded border-2 border-solid border-black bg-blue-100 px-6 py-3 text-black"
                 />
-                <label htmlFor="qualifications">Qualifications</label>
-                <input
-                    id={"qualifications"}
-                    type="text"
-                    value={qualifications}
-                    onChange={(e) => {
-                        setQualifications(e.target.value);
-                    }}
-                    className="rounded border-2 border-solid border-black bg-blue-100 px-6 py-3 text-black"
-                />
-
+                {selectedRole === "doctor" && (
+                    <>
+                        <label htmlFor="qualifications">Qualifications</label>
+                        <input
+                            id={"qualifications"}
+                            type="text"
+                            value={qualifications}
+                            onChange={(e) => {
+                                setQualifications(e.target.value);
+                            }}
+                            className="rounded border-2 border-solid border-black bg-blue-100 px-6 py-3 text-black"
+                        />
+                    </>
+                )}
                 <input
                     className="rounded border-2 border-solid border-black bg-blue-100 px-6 py-3 text-black"
                     type="submit"

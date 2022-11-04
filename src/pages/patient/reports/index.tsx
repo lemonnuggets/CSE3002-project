@@ -1,5 +1,5 @@
 import upload from "assets/upload.png";
-import Layout from "layout/dashboard";
+import Layout from "layout/patient";
 import Image from "next/image";
 import { useState } from "react";
 import styles from "./index.module.css";

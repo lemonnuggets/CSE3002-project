@@ -26,8 +26,8 @@ const Home: NextPage = () => {
     return (
         <>
             <Head>
-                <title>💩 Stupid unnamed project</title>
-                <meta name="description" content="Continuous authentication" />
+                <title>Coronex</title>
+                <meta name="description" content="COVID 19 Dashboard" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
@@ -53,30 +53,6 @@ const Home: NextPage = () => {
                         value="Sign in with email"
                     />
                 </form>
-                {/* {status === "loading" && <div>Loading...</div>} */}
-                {/* {status !== "loading" && (status === "error" || !sessionData) && (
-          <form className="container flex min-w-min flex-col items-center justify-center gap-4">
-            <label htmlFor="email">Email</label>
-            <input
-              id={"email"}
-              type="email"
-              value={email}
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
-              className="rounded border-2 border-solid border-black bg-blue-100 px-6 py-3 text-black"
-            />
-            <input
-              type={"submit"}
-              className="rounded border-2 border-solid border-black bg-blue-400 px-6 py-3 text-black"
-              onClick={(e) => {
-                e.preventDefault();
-                signIn("email", { email });
-              }}
-              value="Sign in with email"
-            />
-          </form>
-        )} */}
             </main>
         </>
     );
