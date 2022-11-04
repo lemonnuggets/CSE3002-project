@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@faker-js/faker': ^7.6.0
   '@next-auth/prisma-adapter': ^1.0.4
   '@prisma/client': ^4.5.0
   '@tanstack/react-query': ^4.10.0
@@ -17,6 +18,7 @@ specifiers:
   eslint-config-next: 13.0.0
   next: 13.0.0
   next-auth: ^4.15.0
+  nodemailer: ^6.8.0
   prisma: ^4.5.0
   react: 18.2.0
   react-dom: 18.2.0
@@ -33,13 +35,15 @@ dependencies:
   '@trpc/react-query': 10.0.0-rc.0_uvoftzwfqfqar7rdive37vl4uu
   '@trpc/server': 10.0.0-rc.0
   next: 13.0.0_biqbaboplfbrettd7655fr4n2y
-  next-auth: 4.15.0_r5sq4deac3rmm2d5onhwvomqve
+  next-auth: 4.15.0_lpfza7lqpqeylqwoqom67hspdi
+  nodemailer: 6.8.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   superjson: 1.9.1
   zod: 3.19.1
 
 devDependencies:
+  '@faker-js/faker': 7.6.0
   '@types/node': 18.0.0
   '@types/react': 18.0.14
   '@types/react-dom': 18.0.5
@@ -83,6 +87,11 @@ packages:
       - supports-color
     dev: true
 
+  /@faker-js/faker/7.6.0:
+    resolution: {integrity: sha512-XK6BTq1NDMo9Xqw/YkYyGjSsg44fbNwYRx7QK2CuoQgyy+f1rrTDHoExVM5PsyXCtfl2vs2vVJ0MN0yN6LppRw==}
+    engines: {node: '>=14.0.0', npm: '>=6.0.0'}
+    dev: true
+
   /@humanwhocodes/config-array/0.10.7:
     resolution: {integrity: sha512-MDl6D6sBsaV452/QSdX+4CXIjZhIcI0PELsxUjk4U828yd58vk3bTIvk/6w5FY+4hIy9sLW0sfrV7K7Kc++j/w==}
     engines: {node: '>=10.10.0'}
@@ -109,7 +118,7 @@ packages:
       next-auth: ^4
     dependencies:
       '@prisma/client': 4.5.0_prisma@4.5.0
-      next-auth: 4.15.0_r5sq4deac3rmm2d5onhwvomqve
+      next-auth: 4.15.0_lpfza7lqpqeylqwoqom67hspdi
     dev: false
 
   /@next/env/13.0.0:
@@ -1602,7 +1611,7 @@ packages:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: true
 
-  /next-auth/4.15.0_r5sq4deac3rmm2d5onhwvomqve:
+  /next-auth/4.15.0_lpfza7lqpqeylqwoqom67hspdi:
     resolution: {integrity: sha512-IasNzGLM2VlmyioDdZaRwBBBm8b5xo+zbbqVWHFh0bY6iQUZ3vuudrsdHNdxkXV3LSHdKNaoWEpYr4BydB7mCw==}
     engines: {node: ^12.19.0 || ^14.15.0 || ^16.13.0}
     peerDependencies:
@@ -1619,6 +1628,7 @@ packages:
       cookie: 0.5.0
       jose: 4.10.4
       next: 13.0.0_biqbaboplfbrettd7655fr4n2y
+      nodemailer: 6.8.0
       oauth: 0.9.15
       openid-client: 5.2.1
       preact: 10.11.2
@@ -1671,6 +1681,11 @@ packages:
     transitivePeerDependencies:
       - '@babel/core'
       - babel-plugin-macros
+    dev: false
+
+  /nodemailer/6.8.0:
+    resolution: {integrity: sha512-EjYvSmHzekz6VNkNd12aUqAco+bOkRe3Of5jVhltqKhEsjw/y0PYPJfp83+s9Wzh1dspYAkUW/YNQ350NATbSQ==}
+    engines: {node: '>=6.0.0'}
     dev: false
 
   /oauth/0.9.15:

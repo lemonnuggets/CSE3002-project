@@ -14,10 +14,82 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Example {
-  id        String   @id @default(cuid())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+model Patient {
+  id             String           @id @default(cuid())
+  location       String
+  prescriptions  Prescription[]
+  labResults     LabResult[]
+  appointments   Appointments[]
+  medicalRecords MedicalRecords[]
+  user           User             @relation(fields: [userId], references: [id])
+
+  userId String @unique
+}
+
+model Doctor {
+  id             String              @id @default(cuid())
+  location       String
+  qualifications String
+  prescribed     Prescription[]
+  comments       LabResultComments[]
+  appointments   Appointments[]
+  user           User                @relation(fields: [userId], references: [id])
+
+  userId String @unique
+}
+
+model Prescription {
+  id           String  @id @default(cuid())
+  name         String
+  for          String // disease name
+  details      String
+  takenBy      Patient @relation(fields: [patientId], references: [id])
+  prescribedBy Doctor  @relation(fields: [doctorId], references: [id])
+
+  patientId String
+  doctorId  String
+}
+
+model MedicalRecords {
+  id        String  @id @default(cuid())
+  content   String
+  recordOf  Patient @relation(fields: [patientId], references: [id])
+  patientId String
+}
+
+model LabResultComments {
+  id          String    @id @default(cuid())
+  comment     String
+  madeBy      Doctor    @relation(fields: [doctorId], references: [id])
+  commentedOn LabResult @relation(fields: [labResultId], references: [id])
+
+  doctorId    String
+  labResultId String
+
+  @@map("Comment")
+}
+
+model LabResult {
+  id                 String              @id @default(cuid())
+  for                String // disease name
+  result             String // positive | negative
+  status             String // processing | waiting for doctor | seen by doctor
+  usedByAppointments Appointments[]
+  comments           LabResultComments[]
+  patient            Patient             @relation(fields: [patientId], references: [id])
+
+  patientId String
+}
+
+model Appointments {
+  id           String      @id @default(cuid())
+  timing       DateTime
+  resultToView LabResult[]
+  takenBy      Patient     @relation(fields: [patientId], references: [id])
+  toMeet       Doctor      @relation(fields: [doctorId], references: [id])
+
+  patientId String
+  doctorId  String
 }
 
 // Necessary for Next auth
@@ -49,10 +121,12 @@ model Session {
 
 model User {
   id            String    @id @default(cuid())
-  name          String?
   email         String?   @unique
+  name          String?
   emailVerified DateTime?
   image         String?
+  Patient       Patient?
+  Doctor        Doctor?
   accounts      Account[]
   sessions      Session[]
 }

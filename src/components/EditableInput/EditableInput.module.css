@@ -13,3 +13,23 @@
     outline: none;
     cursor: pointer;
 }
+.inputField {
+    padding: 2px 5px;
+    margin-right: 25px;
+}
+.editable {
+    border: 1px solid red;
+    border-right: none;
+}
+.editable + button {
+    border: 1px solid red;
+    border-left: none;
+}
+.uneditable {
+    border: 1px solid black;
+    border-right: none;
+}
+.uneditable + button {
+    border: 1px solid black;
+    border-left: none;
+}

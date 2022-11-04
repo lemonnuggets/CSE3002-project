@@ -2,10 +2,13 @@ import edit from "assets/edit.svg";
 import Image from "next/image";
 import { useState } from "react";
 import styles from "./EditableInput.module.css";
-
-const EditableInput = ({ initialValue = "", id = "" }) => {
+type Props = {
+    id: string;
+    value: string;
+    setValue: (val: string) => void;
+};
+const EditableInput = ({ id, value, setValue }: Props) => {
     const [editable, setEditable] = useState(false);
-    const [value, setValue] = useState(initialValue);
     return (
         <div className={styles.wrapper}>
             <input
@@ -14,9 +17,11 @@ const EditableInput = ({ initialValue = "", id = "" }) => {
                 onChange={(e) => {
                     if (editable) setValue(e.target.value);
                 }}
-                className={`${editable ? styles.editable : styles.uneditable}`}
+                className={`${editable ? styles.editable : styles.uneditable} ${
+                    styles.inputField
+                }`}
                 onBlur={() => {
-                    setEditable(false);
+                    setEditable(!editable);
                 }}
                 disabled={!editable}
                 id={id}
