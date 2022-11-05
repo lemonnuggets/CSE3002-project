@@ -1,0 +1,39 @@
+.result {
+    padding: 5px 20px;
+    box-shadow: 1px 1px 1px #888888;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: grid;
+    grid-template-areas:
+        "date date"
+        "labn valu"
+        "loca valu";
+}
+.location {
+    justify-self: left;
+    align-self: center;
+    grid-area: loca;
+}
+.labName {
+    justify-self: left;
+    align-self: center;
+    grid-area: labn;
+}
+.date {
+    justify-self: center;
+    grid-area: date;
+}
+.value {
+    justify-self: right;
+    align-self: center;
+    grid-area: valu;
+    padding: 5px 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+.positive {
+    background-color: lightcoral;
+}
+.negative {
+    background-color: lightgreen;
+}

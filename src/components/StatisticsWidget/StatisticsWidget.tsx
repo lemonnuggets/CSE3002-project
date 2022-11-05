@@ -23,7 +23,6 @@ const StatisticsWidget = () => {
                                     <th>Location</th>
                                     <th>Cases</th>
                                     <th>Deaths</th>
-                                    <th>Recovered</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -67,16 +66,6 @@ const StatisticsWidget = () => {
                                                         className={styles.red}
                                                     >
                                                         +{newDeaths}
-                                                    </span>
-                                                )}
-                                            </td>
-                                            <td>
-                                                {totalRecovered}{" "}
-                                                {Number(newRecovered) > 0 && (
-                                                    <span
-                                                        className={styles.green}
-                                                    >
-                                                        +{newRecovered}
                                                     </span>
                                                 )}
                                             </td>

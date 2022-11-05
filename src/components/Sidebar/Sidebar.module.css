@@ -5,6 +5,8 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    max-width: max-content;
+    min-width: min-content;
 }
 /* .link > .linkIcon {
     max-width: 30px;

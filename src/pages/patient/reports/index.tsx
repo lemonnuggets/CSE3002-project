@@ -1,30 +1,14 @@
 import upload from "assets/upload.png";
+import ReportRow from "components/ReportRow";
 import Layout from "layout/patient";
 import Image from "next/image";
 import { useState } from "react";
+import { trpc } from "utils/trpc";
 import styles from "./index.module.css";
 const Reports = () => {
+    const { data: reports, isFetching: isFetchingReports } =
+        trpc.reports.getAllReports.useQuery();
     const [files, setFiles] = useState<File[]>([]);
-    const results = [
-        {
-            id: "result-1",
-            date: "01-9-22",
-            result: "Negative",
-            location: "ABC Hospital, Bengaluru",
-        },
-        {
-            id: "result-2",
-            date: "10-9-22",
-            result: "Positive",
-            location: "DEF Hospital, Delhi",
-        },
-        {
-            id: "result-3",
-            date: "20-9-22",
-            result: "Positive",
-            location: "GHI Hospital, Mumbai",
-        },
-    ];
 
     return (
         <Layout>
@@ -32,31 +16,28 @@ const Reports = () => {
                 <h1 className={styles.pageTitle}>Reports</h1>
                 <div className={styles.columns}>
                     <div className={styles.column}>
-                        <h2 className={styles.columnTitle}>Previous Results</h2>
-                        <div className={styles.columnContent}>
-                            {results.map((result) => {
-                                return (
-                                    <div
-                                        className={styles.result}
-                                        key={result.id}
-                                    >
-                                        <div className={styles.date}>
-                                            Date: {result.date}
-                                        </div>
-                                        <div className={styles.location}>
-                                            Location: {result.location}
-                                        </div>
-                                        <div
-                                            className={`${styles.value} ${
-                                                styles[result.result]
-                                            }`}
-                                        >
-                                            {result.result}
-                                        </div>
+                        {reports && (
+                            <>
+                                <h2 className={styles.columnTitle}>
+                                    Previous Reports
+                                </h2>
+                                {isFetchingReports && (
+                                    <div className={styles.loader}>
+                                        Loading...
                                     </div>
-                                );
-                            })}
-                        </div>
+                                )}
+                                <div className={styles.columnContent}>
+                                    {reports.map((report) => {
+                                        return (
+                                            <ReportRow
+                                                report={report}
+                                                key={`${report.id}-report`}
+                                            />
+                                        );
+                                    })}
+                                </div>
+                            </>
+                        )}
                     </div>
                     <div className={`${styles.column} ${styles.uploadColumn}`}>
                         <h2 className={styles.columnTitle}>Add Result</h2>
@@ -91,6 +72,15 @@ const Reports = () => {
                                     <div
                                         className={styles.upload}
                                         key={`${file.lastModified}-${file.name}`}
+                                        onClick={() => {
+                                            setFiles((prevFiles) =>
+                                                prevFiles.filter(
+                                                    (prevFile) =>
+                                                        prevFile.name !==
+                                                        file.name
+                                                )
+                                            );
+                                        }}
                                     >
                                         {file.name}
                                     </div>

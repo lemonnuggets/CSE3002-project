@@ -29,7 +29,7 @@ const EditableInput = ({ id, value, setValue }: Props) => {
             <button
                 className={styles.editButton}
                 onClick={() => {
-                    setEditable(true);
+                    setEditable(!editable);
                 }}
             >
                 <Image src={edit} alt="Edit Icon" height={30} />

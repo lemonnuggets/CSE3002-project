@@ -19,33 +19,6 @@
     padding: 20px;
     gap: 20px;
 }
-.result {
-    box-shadow: 1px 1px 1px #888888;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    place-items: center;
-    display: grid;
-    grid-template-areas:
-        "date valu"
-        "loca valu";
-}
-.location {
-    grid-area: loca;
-}
-.date {
-    grid-area: date;
-}
-.value {
-    grid-area: valu;
-    padding: 5px 10px;
-    border-radius: 10px;
-}
-.Positive {
-    background-color: lightcoral;
-}
-.Negative {
-    background-color: lightgreen;
-}
 .fileUpload {
     display: none;
 }

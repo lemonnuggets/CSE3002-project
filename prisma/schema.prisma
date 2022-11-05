@@ -73,9 +73,12 @@ model LabResultComments {
 
 model LabResult {
   id                 String              @id @default(cuid())
-  for                String // disease name
-  result             String // positive | negative
-  status             String // processing | waiting for doctor | seen by doctor
+  submittedDate      DateTime            @default(now())
+  for                String? // disease name
+  result             String? // positive | negative
+  status             String              @default("processing") // processing | waiting for doctor | seen by doctor
+  labName            String?
+  labLocation        String?
   usedByAppointments Appointments[]
   comments           LabResultComments[]
   patient            Patient             @relation(fields: [patientId], references: [id])
@@ -85,6 +88,7 @@ model LabResult {
 
 model Appointments {
   id           String      @id @default(cuid())
+  status       String      @default("waiting for review") // waiting for review | accepted | rejected | completed
   timing       DateTime
   resultToView LabResult[]
   takenBy      Patient     @relation(fields: [patientId], references: [id])

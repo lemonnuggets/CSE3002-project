@@ -1,0 +1,21 @@
+.pageTitle {
+    margin-bottom: 15px;
+}
+.columns {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    width: 100%;
+}
+.column {
+    flex: 1;
+}
+.columnTitle {
+    font-weight: normal;
+}
+.columnContent {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+}
