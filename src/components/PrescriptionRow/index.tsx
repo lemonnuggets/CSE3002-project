@@ -9,21 +9,21 @@ type Props = {
 };
 const PrescriptionRow = ({ prescription }: Props) => {
     return (
-        <div className={styles.result}>
+        <div className={styles.prescription}>
             <div className={styles.name}>Name: {prescription.name}</div>
-
-            <div className={styles.date}>
-                From Date: {prescription.startDate.toDateString()}
+            <div className={styles.doctor}>
+                Prescribed By: Dr. {prescription.prescribedBy.user.name}
             </div>
-            <div className={styles.date}>
-                To Date: {prescription.endDate.toDateString()}
-            </div>
-            <div className={styles.for}>For: {prescription.for}</div>
             <div className={styles.details}>
                 Details: {prescription.details}
             </div>
-            <div className={styles.doctor}>
-                Doctor: {prescription.prescribedBy.user.name}
+
+            <div className={styles.for}>For: {prescription.for}</div>
+            <div className={styles.date}>
+                From: {prescription.startDate.toDateString()}
+            </div>
+            <div className={styles.date}>
+                To: {prescription.endDate.toDateString()}
             </div>
         </div>
     );

@@ -17,4 +17,18 @@ export const prescriptionsRouter = router({
         });
         return prescriptions;
     }),
+    getCurrentPrescriptions: protectedProcedure.query(async ({ ctx }) => {
+        const date = new Date();
+        const prescriptions = await ctx.prisma.prescription.findMany({
+            where: {
+                startDate: {
+                    lte: date,
+                },
+                endDate: {
+                    gte: date,
+                },
+            },
+        });
+        return prescriptions;
+    }),
 });

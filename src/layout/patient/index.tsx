@@ -5,10 +5,19 @@ import profile from "assets/profile.svg";
 import report from "assets/report.svg";
 import Header from "components/Header";
 import Sidebar from "components/Sidebar";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 import type { SidebarLink } from "types/custom";
 import styles from "./index.module.css";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
+    const { data: sessionData } = useSession();
+    const router = useRouter();
+    if (sessionData?.user?.id == null) {
+        if (typeof window !== "undefined") {
+            router.push("/");
+        }
+    }
     const sidebarLinks: SidebarLink[] = [
         {
             href: "/patient/dashboard",

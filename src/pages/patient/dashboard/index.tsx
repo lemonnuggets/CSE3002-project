@@ -10,8 +10,8 @@ const Dashboard = () => {
                 <h1 className={styles.pageTitle}>Dashboard</h1>
                 <div className={styles.widgetGrid}>
                     <RecentActivitiesWidget />
-                    <CurrentPrescription />
                     <StatisticsWidget />
+                    <CurrentPrescription />
                 </div>
             </div>
         </Layout>

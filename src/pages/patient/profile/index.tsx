@@ -36,36 +36,44 @@ const Profile = () => {
         <Layout>
             <div className={styles.main}>
                 <h1 className={styles.pageTitle}>Patient Profile</h1>
-                <div className={styles.fields}>
-                    <div className={styles.field}>
-                        <label htmlFor="name">Name</label>
-                        <EditableInput
-                            id="name"
-                            value={name}
-                            setValue={setName}
-                        />
+                <div className={styles.columns}>
+                    <div className={styles.column}>
+                        <h2 className={styles.columnTitle}>Basic Info</h2>
+                        <div className={styles.fields}>
+                            <div className={styles.field}>
+                                <label htmlFor="name">Name</label>
+                                <EditableInput
+                                    id="name"
+                                    value={name}
+                                    setValue={setName}
+                                />
+                            </div>
+                            <div className={styles.field}>
+                                <label htmlFor="location">Location</label>
+                                <EditableInput
+                                    id="location"
+                                    value={location}
+                                    setValue={setLocation}
+                                />
+                            </div>
+                        </div>
+                        <div className={styles.footer}>
+                            {isFetchingPatient && (
+                                <div className={styles.loader}>Loading...</div>
+                            )}
+                            {formEnabled && (
+                                <button
+                                    className={styles.button}
+                                    onClick={updatePatient}
+                                >
+                                    Update Info
+                                </button>
+                            )}
+                        </div>
                     </div>
-                    <div className={styles.field}>
-                        <label htmlFor="location">Location</label>
-                        <EditableInput
-                            id="location"
-                            value={location}
-                            setValue={setLocation}
-                        />
-                    </div>
-                </div>
-                <div className={styles.footer}>
-                    {isFetchingPatient && (
-                        <div className={styles.loader}>Loading...</div>
-                    )}
-                    {formEnabled && (
-                        <button
-                            className={styles.button}
-                            onClick={updatePatient}
-                        >
-                            Update Info
-                        </button>
-                    )}
+                    {/* <div className={styles.column}>
+                        <h2 className={styles.columnTitle}>Medical Records</h2>
+                    </div> */}
                 </div>
             </div>
         </Layout>

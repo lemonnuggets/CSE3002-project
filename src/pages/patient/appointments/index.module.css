@@ -19,3 +19,30 @@
     padding: 20px;
     gap: 20px;
 }
+.appointmentForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.appointmentForm > * {
+    width: 100%;
+}
+.fields {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+}
+.fields > * {
+    flex: 1;
+}
+.button {
+    width: min-content;
+    background-color: lightgreen;
+    color: black;
+    border: 2px solid black;
+    padding: 10px 25px;
+    border-radius: 10px;
+    cursor: pointer;
+}

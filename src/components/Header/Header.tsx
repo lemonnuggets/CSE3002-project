@@ -23,6 +23,7 @@ function Header() {
                     onClick={() => {
                         signOut();
                     }}
+                    className={styles.button}
                 >
                     Sign Out
                 </button>

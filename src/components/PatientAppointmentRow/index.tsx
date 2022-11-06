@@ -12,14 +12,19 @@ type Props = {
 };
 const PatientAppointmentRow = ({ appointment }: Props) => {
     return (
-        <div className={styles.result}>
+        <div className={styles.appointment}>
             <div className={styles.date}>
-                Scheduled for: {appointment.timing.toUTCString()}
+                Date: {appointment.timing.toLocaleDateString()}
+            </div>
+            <div className={styles.time}>
+                Time: {appointment.timing.toLocaleTimeString()}
             </div>
             <div className={styles.labName}>
                 Doctor: {appointment.toMeet.user.name}
             </div>
-            <div className={styles.status}>Status: {appointment.status}</div>
+            <div className={styles.status}>
+                Status: {appointment.status.toLocaleUpperCase()}
+            </div>
             <div className={styles.attachedReports}>
                 {appointment.resultToView.map((report) => {
                     return (

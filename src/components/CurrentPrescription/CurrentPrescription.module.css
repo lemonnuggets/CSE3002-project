@@ -1,26 +1,36 @@
 .widget {
-  grid-area: pres;
-  box-shadow: 2px 2px 1px #888888;
-  border: 2px black solid;
-  border-radius: 20px;
-  padding: 20px 10px;
-  max-height: 350px;
-  width: max-content;
-  height: fit-content;
+    grid-area: pres;
+    box-shadow: 2px 2px 1px #888888;
+    border: 2px black solid;
+    border-radius: 20px;
+    padding: 20px 10px;
+    max-height: 350px;
+    width: max-content;
+    height: fit-content;
 }
 .widgetTitle {
-  font-weight: normal;
+    font-weight: normal;
 }
 
 .prescription {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
+    display: grid;
+    grid-template-areas:
+        "name date"
+        "deta deta";
+    border: 1px solid gray;
+    padding: 5px 10px;
+    border-radius: 5px;
 }
-.prescription>.icon {
-  width: 100px;
+.prescription > .date {
+    grid-area: "date";
+    color: grey;
 }
-.prescription>.name {
-  font-size: 18px;
+.prescription > .name {
+    grid-area: "name";
+    font-size: 18px;
+    font-weight: bold;
+}
+.prescription > .details {
+    grid-area: "deta";
+    font-size: 12px;
 }

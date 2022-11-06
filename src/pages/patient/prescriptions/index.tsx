@@ -9,15 +9,24 @@ const Prescriptions = () => {
         <Layout>
             <div className={styles.main}>
                 <h1 className={styles.pageTitle}>Prescriptions</h1>
-                {prescriptions?.map((prescription) => {
-                    return (
-                        <PrescriptionRow
-                            prescription={prescription}
-                            key={prescription.id}
-                        />
-                    );
-                })}
-                {isFetching && <div className={styles.loader}>Loading...</div>}
+                <div className={styles.columns}>
+                    <div className={styles.column}>
+                        <h2 className={styles.columnTitle}>History</h2>
+                        <div className={styles.columnContent}>
+                            {prescriptions?.map((prescription) => {
+                                return (
+                                    <PrescriptionRow
+                                        prescription={prescription}
+                                        key={prescription.id}
+                                    />
+                                );
+                            })}
+                            {isFetching && (
+                                <div className={styles.loader}>Loading...</div>
+                            )}
+                        </div>
+                    </div>
+                </div>
             </div>
         </Layout>
     );

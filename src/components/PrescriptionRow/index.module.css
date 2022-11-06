@@ -1,0 +1,13 @@
+.prescription {
+    padding: 10px 20px;
+    width: 700px;
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+.prescription > * {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
