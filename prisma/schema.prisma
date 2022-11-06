@@ -43,7 +43,7 @@ model Prescription {
   name         String
   for          String // disease name
   details      String
-  startDate    DateTime
+  startDate    DateTime @default(now())
   endDate      DateTime
   takenBy      Patient  @relation(fields: [patientId], references: [id])
   prescribedBy Doctor   @relation(fields: [doctorId], references: [id])
@@ -74,9 +74,11 @@ model LabResultComments {
 model LabResult {
   id                 String              @id @default(cuid())
   submittedDate      DateTime            @default(now())
+  resultReceivedOn   DateTime?
+  seenByDoctorOn     DateTime?
   for                String? // disease name
   result             String? // positive | negative
-  status             String              @default("processing") // processing | waiting for doctor | seen by doctor
+  status             String              @default("processing") // processing | result received
   labName            String?
   labLocation        String?
   usedByAppointments Appointments[]
@@ -88,6 +90,7 @@ model LabResult {
 
 model Appointments {
   id           String      @id @default(cuid())
+  reservedAt   DateTime    @default(now())
   status       String      @default("waiting for review") // waiting for review | accepted | rejected | completed
   timing       DateTime
   resultToView LabResult[]

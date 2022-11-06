@@ -1,4 +1,5 @@
 import { router } from "../trpc";
+import { activitiesRouter } from "./activities";
 import { appointmentRouter } from "./appointment";
 import { authRouter } from "./auth";
 import { doctorRouter } from "./doctor";
@@ -10,6 +11,7 @@ import { userRouter } from "./user";
 export const appRouter = router({
     auth: authRouter,
     user: userRouter,
+    activities: activitiesRouter,
     appointment: appointmentRouter,
     reports: reportsRouter,
     doctor: doctorRouter,

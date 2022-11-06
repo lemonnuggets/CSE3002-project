@@ -1,6 +1,6 @@
 import appointment from "assets/appointment.svg";
 import dashboard from "assets/dashboard.png";
-import pill from "assets/pills-medicine.svg";
+import pill from "assets/pill.svg";
 import profile from "assets/profile.svg";
 import report from "assets/report.svg";
 import Header from "components/Header";

@@ -14,7 +14,7 @@ const PatientAppointmentRow = ({ appointment }: Props) => {
     return (
         <div className={styles.result}>
             <div className={styles.date}>
-                Timing: {appointment.timing.toUTCString()}
+                Scheduled for: {appointment.timing.toUTCString()}
             </div>
             <div className={styles.labName}>
                 Doctor: {appointment.toMeet.user.name}

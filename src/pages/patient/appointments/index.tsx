@@ -109,7 +109,7 @@ const AppointmentPage = () => {
                                     />
                                 </div>
                                 <div className={styles.fields}>
-                                    <label htmlFor="time">time</label>
+                                    <label htmlFor="time">Time</label>
                                     <input
                                         type="time"
                                         name="time"

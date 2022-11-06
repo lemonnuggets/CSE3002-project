@@ -8,7 +8,11 @@ export const prescriptionsRouter = router({
                 },
             },
             include: {
-                prescribedBy: true,
+                prescribedBy: {
+                    include: {
+                        user: true,
+                    },
+                },
             },
         });
         return prescriptions;

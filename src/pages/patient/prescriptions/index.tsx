@@ -5,8 +5,6 @@ import styles from "./index.module.css";
 const Prescriptions = () => {
     const { data: prescriptions, isFetching } =
         trpc.prescription.getAll.useQuery();
-
-    console.log(prescriptions);
     return (
         <Layout>
             <div className={styles.main}>
@@ -19,6 +17,7 @@ const Prescriptions = () => {
                         />
                     );
                 })}
+                {isFetching && <div className={styles.loader}>Loading...</div>}
             </div>
         </Layout>
     );

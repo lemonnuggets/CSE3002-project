@@ -1,43 +1,16 @@
-import appointment from "assets/appointment.svg";
-import report from "assets/report.svg";
 import Image from "next/image";
+import { activityToClientActivity } from "utils/activities";
+import { trpc } from "utils/trpc";
 import styles from "./RecentActivitiesWidget.module.css";
 const RecentActivitiesWidget = () => {
-    const activites = [
-        {
-            id: "activity-1",
-            description: "Reserved checkup for 29th Sept",
-            date: "23-09-22",
-            icon: appointment,
-            iconAlt: "Appointment Icon",
-        },
-        {
-            id: "activity-2",
-            description: "Tested positive for COVID-19",
-            date: "20-09-22",
-            icon: report,
-            iconAlt: "Report Icon",
-        },
-        {
-            id: "activity-3",
-            description: "Tested positive for COVID-19",
-            date: "10-09-22",
-            icon: report,
-            iconAlt: "Report Icon",
-        },
-        {
-            id: "activity-4",
-            description: "Tested negative for COVID-19",
-            date: "01-09-22",
-            icon: report,
-            iconAlt: "Report Icon",
-        },
-    ];
+    const { data: serverActivities, isLoading } =
+        trpc.activities.getAll.useQuery();
+    const activites = serverActivities?.map(activityToClientActivity);
     return (
         <div className={styles.widget}>
             <h2 className={styles.widgetTitle}>Recent Activities</h2>
             <div className={styles.content}>
-                {activites.map((activity) => {
+                {activites?.map((activity) => {
                     return (
                         <div className={styles.activity} key={activity.id}>
                             <div className={styles.icon}>
@@ -51,9 +24,11 @@ const RecentActivitiesWidget = () => {
                                 <div className={styles.description}>
                                     {activity.description}
                                 </div>
-                                <div className={styles.date}>
-                                    {activity.date}
-                                </div>
+                                {activity.date !== null && (
+                                    <div className={styles.date}>
+                                        {activity.date.toLocaleDateString()}
+                                    </div>
+                                )}
                             </div>
                         </div>
                     );
