@@ -27,7 +27,7 @@ export const prescriptionToActivity = (
 ): Activity => {
     return {
         id: `${prescription.id}-prescription`,
-        description: `${prescription.name} prescribed by ${
+        description: `${prescription.name} prescribed by Dr. ${
             prescription.prescribedBy.user.name
         }, for ${prescription.for} till ${prescription.endDate.toDateString()}`,
         type: "prescription",
